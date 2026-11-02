@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 // Healthcheck endpoint
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
+  res.status(200).json({ status: 'broken', timestamp: new Date().toISOString() });
 });
 
 // Sample API route
