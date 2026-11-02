@@ -3,7 +3,18 @@ const app = express();
 
 app.use(express.json());
 
-// Healthcheck endpoint (Essential for production monitoring)
+// Root path handler
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to the Modern Monolith API',
+    endpoints: {
+      health: '/health',
+      products: '/api/v1/products'
+    }
+  });
+});
+
+// Healthcheck endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
